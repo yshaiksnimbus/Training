@@ -11,6 +11,16 @@
 
 
 
+<apex:remoteObjects >
+  <apex:remoteObjectModel name="Account" fields="Id,Name,LastModifiedDate"/>
+</apex:remoteObjects>
+
+
+
+
+
+
+
 
 <body>
 
@@ -28,8 +38,20 @@
   <div class="slds-grid">
     <div class="slds-col slds-has-flexi-truncate">
       <!-- HEADING AREA -->
-      <p class="slds-text-title--caps slds-line-height--reset">Accounts</p>
-      <h1 class="slds-page-header__title slds-truncate" title="My Accounts">My Accounts</h1>
+      <!-- HEADING AREA -->
+<div class="slds-media slds-media--top slds-no-space slds-grow">
+  <div class="slds-media__figure">
+    <span class="slds-avatar slds-avatar--medium">
+      <img src="{!URLFOR($Resource.SLDS214, 'assets/images/avatar1.jpg')}" alt="" />
+    </span>
+  </div>
+  <div class="slds-media__body">
+    <p class="slds-text-heading--label">Accounts</p>
+    <h1 class="slds-page-header__title slds-truncate" title="My Accounts">My Accounts</h1>
+  </div>
+</div>
+<!-- / HEADING AREA -->
+
       <!-- / HEADING AREA -->
     </div>
     <div class="slds-col slds-no-flex slds-grid slds-align-top">
@@ -43,7 +65,7 @@
   </div>
 </div>
 <!-- / PAGE HEADER -->
-
+    
     <!-- / PAGE HEADER -->
 
     <!-- PRIMARY CONTENT WRAPPER -->
@@ -87,7 +109,7 @@
   <!-- / JAVASCRIPT -->
   <!-- JAVASCRIPT -->
 <script>
-  /*(function() {
+  (function() {
     var account = new SObjectModel.Account();
     var outputDiv = document.getElementById('account-list');
 
@@ -144,7 +166,7 @@
       );
     }
     updateOutputDiv();
-  })();*/
+  })();
 </script>
 <!-- / JAVASCRIPT -->
 
