@@ -1,0 +1,24 @@
+<apex:page >
+  
+      <html>
+          <table>
+              <tr>
+                  <th>Account Id</th>
+                  <th>Account Name</th>
+              </tr>
+              <tr>
+                  <td>123</td>
+                  <td>Yaseen</td>
+              </tr>
+              <tr>
+                  <td>456</td>
+                  <td>Ranjith</td>
+              </tr>
+              <tr>
+                  <td>789</td>
+                  <td>Padmaja</td>
+              </tr>
+              
+          </table>
+      </html>
+</apex:page>
