@@ -1,0 +1,25 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <apex:stylesheet value="{!URLFOR($Resource.SLDS214, 'assets/images')}" />
+  <!-- HEADING AREA -->
+    <div class="slds-media slds-media--top slds-no-space slds-grow">
+      <div class="slds-media__figure">
+        <span class="slds-avatar slds-avatar--medium">
+          <img src="{!URLFOR($Resource.SLDS214, 'assets/images/avatar1.jpg')}" alt="" />
+        </span>
+      </div>
+    <div class="slds-media__body">
+    <p class="slds-text-heading--label">Accounts</p>
+    <h1 class="slds-page-header__title slds-truncate" title="My Accounts">My Accounts</h1>
+  </div>
+</div>
+<!-- / HEADING AREA -->
+
+</head>
+</html>
+</apex:page>
