@@ -6,3 +6,6 @@ config/.lightning
 config/.local_store
 config/.org_metadata
 config/.settings
+debug/logs/2016-11-16 16-04-05.log
+debug/logs/2016-11-16 16-05-14.log
+debug/logs/2016-11-17 14-43-56.log
