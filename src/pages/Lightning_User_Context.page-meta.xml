@@ -3,7 +3,7 @@
     <apiVersion>38.0</apiVersion>
     <availableInTouch>false</availableInTouch>
     <confirmationTokenRequired>false</confirmationTokenRequired>
-    <label>Sample</label>
+    <label>Lightning_User_Context</label>
     <packageVersions>
         <majorNumber>1</majorNumber>
         <minorNumber>11</minorNumber>

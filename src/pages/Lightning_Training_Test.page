@@ -14,8 +14,8 @@
 
 	
 
-	<apex:remoteObjects>
-  		<apex:remoteObjectModel name="Lead" fields="Name,Email,LastModifiedDate,Street,City,State,Country,PostalCode"/>
+	<apex:remoteObjects >
+  		<apex:remoteObjectModel name="Lead" fields="Name,ID,Email,LastModifiedDate,Street,City,State,Country,PostalCode, OwnerId"/>
 	</apex:remoteObjects>
 
 
@@ -83,12 +83,8 @@
   (function() {
     var lead = new SObjectModel.Lead();
     var outputDiv = document.getElementById('lead-list');
-
-    var updateOutputDiv = function() {
-
-      lead.retrieve(
-        { orderby: [{ LastModifiedDate: 'DESC' }], limit: 10 },
-        function(error, records) {
+    var Userid = '{!$User.Id}';
+    const displayResults = function(error, records) {
           if (error) {
             alert(error.message);
           } else {
@@ -100,8 +96,11 @@
             var tableHeader = dataTable.createTHead();
             var tableHeaderRow = tableHeader.insertRow();
 
+
+
             var tableHeaderRowCell1 = tableHeaderRow.insertCell(0);
             tableHeaderRowCell1.appendChild(document.createTextNode('Name'));
+
             tableHeaderRowCell1.setAttribute('scope', 'col');
             tableHeaderRowCell1.setAttribute('class', 'slds-text-heading--label');
 
@@ -117,36 +116,84 @@
 
             // build table body
             var tableBody = dataTable.appendChild(document.createElement('tbody'))
-            var dataRow, dataRowCell1, dataRowCell2, dataRowCell3, recordName, recordEmail, recordAddress;
+            let dataRow, dataRowCell1, dataRowCell2, dataRowCell3, recordName, recordEmail, recordAddress, recordId;
             records.forEach(function(record) {
               dataRow = tableBody.insertRow();
 
+              let anchorLink = document.createElement('a');
+              anchorLink.setAttribute("class","slds-text-link");
+              anchorLink.setAttribute("href","javascript:openLead('" + record.get('Id') + "')");
+              
+
+
               dataRowCell1 = dataRow.insertCell(0);
               recordName = document.createTextNode(record.get('Name'));
-              dataRowCell1.appendChild(recordName);
+              anchorLink.appendChild(recordName);
+
+              dataRowCell1.appendChild(anchorLink);
 
               dataRowCell2 = dataRow.insertCell(1);
               recordEmail = document.createTextNode(record.get('Email'));
               dataRowCell2.appendChild(recordEmail);
 
               dataRowCell3 = dataRow.insertCell(2);
-              recordAddress = document.createTextNode(((record.get('Street')===null)?'':(record.get('Street')+',')) + ((record.get('City)===null)?'':(record.get('City')+',')) + ((record.get('State')===null)?'':(record.get('State')+',')) + ((record.get('Country')===null)?'':(record.get('Country')+',')) +((record.get('PostalCode')===null)?'':(record.get('PostalCode')+',')));
+              recordAddress = document.createTextNode(((record.get('Street')==null)?'':(record.get('Street')+','))+((record.get('City')==null)?'':(record.get('City')+','))+((record.get('State')==null)?'':(record.get('State')+','))+' '+((record.get('PostalCode')==null)?'':(record.get('PostalCode')))+' '+((record.get('Country')==null)?'':(record.get('Country'))));
               dataRowCell3.appendChild(recordAddress);
+               
+              
             });
-
             if (outputDiv.firstChild) {
-              // replace table if it already exists
-              // see later in tutorial
-              outputDiv.replaceChild(dataTable, outputDiv.firstChild);
-            } else {
-              outputDiv.appendChild(dataTable);
-            }
-          }
-        }
-      );
+                  // replace table if it already exists
+                  // see later in tutorial
+                  outputDiv.replaceChild(dataTable, outputDiv.firstChild);
+              } else {
+                  outputDiv.appendChild(dataTable);
+              }
+      }
+    }
+    var updateOutputDiv = function() {
+      lead.retrieve(
+        {where: {
+        	Country: {eq: 'USA'},
+         
+      		},
+        }, displayResults);
     }
     updateOutputDiv();
+
+    
+    
+
+    
   })();
+
+
+function openLead(recordId){
+
+      
+
+      if ("{! $User.UIThemeDisplayed }" == "Theme4d" && sforce) {
+                sforce.one.navigateToSObject(recordId);
+
+                }else{
+
+                    window.location = '/' + recordId;
+                   
+                }
+                
+                
+    
+              }
+
+
+  
+
+
+  
+
+    
+            
+  
 </script>
 <!-- / JAVASCRIPT -->
 

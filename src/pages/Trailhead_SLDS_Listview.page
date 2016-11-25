@@ -11,7 +11,7 @@
 <body>
 
   <!-- REQUIRED SLDS WRAPPER -->
-  <div class="myscopingclass">
+  <div class="myscopeclass">
 
     <!-- MASTHEAD -->
     <p class="slds-text-heading--label slds-m-bottom--small">
