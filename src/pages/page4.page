@@ -1,0 +1,49 @@
+<apex:page controller="Assignment4Controller" standardStylesheets="false" showHeader="false" sidebar="false" applyBodyTag="false" applyHtmlTag="false">
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <head>
+  	<title>Email and Phone Validation</title>
+  	<apex:stylesheet value="{!URLFOR($Resource.SLDS090,'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+  	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  </head>
+  <body>
+  	<apex:form >
+  		<div class="slds">
+  			<div class="slds-grid slds-wrap">
+  				<div class="slds-grid-col--padded">
+  					<div class="slds-form-element">
+  						<label class="slds-form-element__label" for="textbox">Enter the Email or Phone:</label>                                    
+                        <apex:inputText id="textbox" styleclass="slds-input" value="{!inputstring}">
+                            <apex:actionSupport action="{!show}" event="onchange" rerender="output" status="getstartedstatus"/>
+                        </apex:inputText>
+  					</div>
+  				</div>
+  				<div class="slds-col--padded slds-size--1-of-1  slds-medium-size--2-of-12 slds-large-size--4-of-12">
+                    <div class="slds-form-element">
+                                    
+                        <apex:actionStatus id="getstartedstatus"> 
+                            <apex:facet name="stop">
+                                <apex:commandButton id="btnsearch" value="Validate" styleclass="slds-button slds-button--brand" action="{!show}" style="margin-top:20px;" rerender="output" status="getstartedstatus"/>                                         
+                            </apex:facet> 
+                            <apex:facet name="start"> 
+                                <apex:commandButton id="btnsearchdisable" value="Validating..." disabled="true" styleclass="slds-button slds-button--brand" style="margin-top:20px;" />
+                            </apex:facet> 
+                                    
+                        </apex:actionStatus>
+                    </div>
+                </div>
+  			</div>
+  			<div>
+  				<br/>
+  				<apex:outputLabel id="output">
+  				{!inputstring}
+  				</apex:outputLabel>
+  			</div>
+  		</div>
+  		
+  	</apex:form>
+  </body>
+
+
+
+</html>
+</apex:page>

@@ -1,0 +1,55 @@
+<apex:page controller="Assignment3Controller" standardStylesheets="false" showHeader="false" sidebar="false" applyBodyTag="false" applyHtmlTag="false">
+  <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <head>
+  	<title>Prime Numbers</title>
+  	<apex:stylesheet value="{!URLFOR($Resource.SLDS090,'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+  	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  </head>
+  <body>
+  	<apex:form >
+  		<div class="slds">
+  			<div class="slds-grid slds-wrap">
+                            <div class="slds-col--padded slds-size--1-of-1  slds-medium-size--4-of-6 slds-large-size--8-of-12">
+                                <div class="slds-form-element">
+                                    <label class="slds-form-element__label" for="start">Startin Number</label>                                    
+                                    <input type="number" id="start" styleclass="slds-input" value="{!startNo}">
+                                        
+                                    </input>
+                                </div> 
+                            </div>
+                            <div class="slds-col--padded slds-size--1-of-1  slds-medium-size--4-of-6 slds-large-size--8-of-12">
+                                <div class="slds-form-element">
+                                    <label class="slds-form-element__label" for="end">Ending Number</label>                                    
+                                    <input type="number" id="end" styleclass="slds-input" value="{!endNo}">
+                                        
+                                    </input>
+                                </div> 
+                            </div>
+                            
+                            <div class="slds-col--padded slds-size--1-of-1  slds-medium-size--2-of-12 slds-large-size--4-of-12">
+                                <div class="slds-form-element">
+                                    
+                                   
+                                   	<apex:commandButton id="btnsearch" value="Submit" styleclass="slds-button slds-button--brand" action="{!show}" style="margin-top:20px;" rerender="output"/>                                         
+                                    	
+                                        	
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div>
+                            <br/>
+                            <apex:outputPanel id="output">
+                            	<apex:repeat value="{!str}" var="str">
+                            		{!str}<br/>
+                            	</apex:repeat>
+                            </apex:outputPanel>
+                            
+                        </div>
+  		</div>
+  	</apex:form>
+  </body>
+  </html>
+</apex:page>

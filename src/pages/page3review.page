@@ -1,0 +1,46 @@
+<apex:page controller="Assignment3_v2">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">   
+        <head>
+            <title>Assignment 2</title>
+            <apex:stylesheet value="{!URLFOR($Resource.SLDS090, 'assets/styles/salesforce-lightning-design-system-vf.css')}" /> 
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        </head>
+        <body>
+            <apex:form >         
+                <div class="slds">              
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col--padded slds-size--1-of-1  slds-medium-size--3-of-6 slds-large-size--6-of-12">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="inputAcc">Enter Start Number</label>                                    
+                                <apex:inputtext id="inputAcc1" styleclass="slds-input" value="{!num1}">
+                                    <apex:actionSupport event="onchange" rerender="pnumber" status="getstartedstatus"/>
+                                </apex:inputText>
+                            </div>
+                        </div>
+                        <div class="slds-col--padded slds-size--1-of-1  slds-medium-size--3-of-6 slds-large-size--6-of-12">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="inputAcc">Enter End Number</label>                                    
+                                <apex:inputText id="inputAcc2" styleclass="slds-input" value="{!num2}">
+                                    <apex:actionSupport event="onchange" rerender="pnumber" status="getstartedstatus"/>
+                                </apex:inputText>
+                            </div> 
+                        </div>                      
+                    </div>
+                    
+                    <div class="slds-col--padded slds-size--1-of-1  slds-medium-size--1-of-12 slds-large-size--1-of-12">
+                        <div class="slds-form-element">                                 
+                            <apex:actionStatus id="getstartedstatus" startText="Searching..." stopText="" />
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div>
+                        <apex:outputpanel id="pnumber">
+                            <apex:outputText value="{!PrimeNumber}"/>
+                        </apex:outputpanel>
+                    </div>
+                </div>
+            </apex:form>
+        </body>
+    </html>
+</apex:page>

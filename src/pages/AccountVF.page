@@ -1,0 +1,54 @@
+<apex:page controller="AccountController" sidebar="false" showHeader="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" docType="html-5.0">
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Contacts of Account search</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <apex:stylesheet value="{!URLFOR($Resource.SLDS214, 'assets/styles/salesforce-lightning-design-system-vf.min.css')}" />
+</head>
+
+<body>    
+<apex:form >    
+
+    <div class="myscopeclass">
+        
+        <p class="slds-text-heading--label slds-m-bottom--small">
+      	Account Search And display Contacts related to that Account
+    	</p>
+        
+        <div class="slds-page-header" role="banner">
+            <div class="slds-grid">
+            	<div class="slds-col">
+                    <h3 class="slds-page-header__title slds-truncate">
+                        Account Details
+                    </h3>   
+                    
+                </div>
+                <div class="slds-col">
+                    <p class="slds-text-heading--label">
+                        Enter the Account Name
+                    </p>
+                    <input type="text" name="{!actName}"/>
+                </div>
+                <div class="slds-col">
+                    <apex:commandButton value="Search" action="{!searchbutton}"/>
+                       
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="slds-grid" >
+            <apex:dataTable value="{!con}" var="c" id="table">
+            	<apex:column value="{!c.Name}"/>
+                <apex:column value="{!c.Phone}"/>
+                <apex:column value="{!c.Email}"/>
+            </apex:dataTable>
+        </div>
+    </div>
+    
+</apex:form>
+</body>    
+</html>
+</apex:page>

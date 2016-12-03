@@ -1,0 +1,43 @@
+<apex:page controller="DateController" sidebar="false" showHeader="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" docType="html-5.0">
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Difference between dates</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <apex:stylesheet value="{!URLFOR($Resource.SLDS214, 'assets/styles/salesforce-lightning-design-system-vf.min.css')}" />
+</head>
+<body>    
+<apex:form >    
+
+    <div class="myscopeclass">
+        
+        <p class="slds-text-heading--label slds-m-bottom--small">
+      	Difference between Entered Date and Today's Date
+    	</p>
+        
+        <div class="slds-page-header" role="banner">
+            <div class="slds-grid">
+            	<div class="slds-col">
+                    <h3 class="slds-page-header__title">
+                        Enter The DOB:
+                    </h3>
+                    
+                    
+                </div>
+                
+                <!--<div class="slds-col">
+                    <apex:commandButton action="{!searchbutton}" value="Search" reRender="table"/>
+                       
+                    
+                </div>-->
+            </div>
+        </div>
+        
+        
+    </div>
+    
+</apex:form>
+</body>    
+</html>  
+</apex:page>

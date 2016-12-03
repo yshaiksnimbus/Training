@@ -4,6 +4,7 @@
             <h1>
                Welcome to S NImbus Solutions 
         	</h1>
+        	<apex:image id="theImage" value="/img/myimage.gif" width="220" height="55"/>
         </p>
     </html>
 </apex:page>

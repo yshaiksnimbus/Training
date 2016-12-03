@@ -1,0 +1,42 @@
+<apex:page controller="Assignment2Controller">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">   
+        <head>
+            <title>Assignment 2</title>
+            <apex:stylesheet value="{!URLFOR($Resource.SLDS090, 'assets/styles/salesforce-lightning-design-system-vf.css')}" /> 
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        </head>
+        <body>
+            <apex:form >         
+                <div class="slds">              
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col--padded slds-size--1-of-1  slds-medium-size--4-of-6 slds-large-size--8-of-12">
+                                <div class="slds-form-element">
+                                    <label class="slds-form-element__label" for="inputAcc">Date of Birth</label>                                    
+                                    <apex:inputField id="inputAcc" styleclass="slds-input" value="{!opp.CloseDate}">
+                                        <apex:actionSupport action="{!doDateFormat}" event="onchange" rerender="ContactListpanel" status="getstartedstatus"/>
+                                    </apex:inputField>
+                                </div> 
+                            </div>
+                            
+                            <div class="slds-col--padded slds-size--1-of-1  slds-medium-size--2-of-12 slds-large-size--4-of-12">
+                                <div class="slds-form-element">                                 
+                                    <apex:actionStatus id="getstartedstatus" startText="Searching..." stopText="" />
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div>
+                            <br/>
+                            
+                            <apex:outputpanel id="ContactListpanel">
+                                <apex:outputtext value="{!age}"/>
+                            </apex:outputpanel>
+                        </div>
+                        
+                </div>
+            </apex:form>
+        </body>
+    </html>
+</apex:page>
