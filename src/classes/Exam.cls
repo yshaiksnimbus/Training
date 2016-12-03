@@ -59,7 +59,7 @@ public class Exam {
     
     	//Print the Account Name in reverse order
     
-    /*public static void namereverse(){
+    public static void namereverse(){
         
         Account act = new Account();
         act =[select Name from Account limit 1];
@@ -109,7 +109,7 @@ public class Exam {
     }
     
     
-    	//difference between two dates
+    	
     
     public static void DifferenceofDates(string s1, string s2){
         
@@ -148,7 +148,6 @@ public class Exam {
     
     
     
-    //Write an Apex Program to add two binary nos
     
     public static void binaryAddition(string bin1, string bin2){
     
@@ -177,7 +176,7 @@ public class Exam {
         }
         
         system.debug('Sum of two binary numbers: '+sum);
-   }*/
+   }
 
 
    
