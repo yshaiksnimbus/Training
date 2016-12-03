@@ -14,39 +14,39 @@ public class Exam {
          return u;  
     }
     
-    	//Print the Account Names in Alphabetical accending order
+    	//Print the Account Names in Alphabetical ascending order
     
     public static list<Account> displayAccounts(){
         
         list<Account> act = new list<Account>();
         act = [select Id,Name from Account ORDER BY Name ASC];
-        System.debug(act);
+        for(Account a : act){
+            system.debug(a.Name);
+        }
         return act;
     }
     
     	//Print the all the contact First name & last name (first alphabet in Capital letter)
     
-    /*public static void displayContact(){
+    public static Contact displayContact(){
         
-        string fName;
-        string lName;
-        list<Contact> cts = new list<Contact>();
-        cts = [select FirstName,LastName from Contact limit 2];
-        for(Contact c : cts){
+        
+        Contact cts = new Contact();
+        cts = [select FirstName,LastName from Contact where FirstName ='shaik' limit 1];
             
-            System.debug(c.FirstName.capitalize()+' '+c.LastName.capitalize());
-            
+            System.debug(cts.FirstName.capitalize()+' '+cts.LastName.capitalize());
+            return cts;
                         
-        }
         
-    }*/
+        
+    }
 
     
     	//1 , (1+1)^2= 4 , (4+1)^2 =25 , (25+1)^2
     
-    public static list<integer> series(integer n){
-        integer a = 1;
-        list<integer> intseries = new list<integer>();
+    public static list<long> series(integer n){
+        long a = 1;
+        list<long> intseries = new list<long>();
         for(integer i=0;i<n;i++){
             system.debug(a);
             intseries.add(a);
@@ -59,28 +59,32 @@ public class Exam {
     
     	//Print the Account Name in reverse order
     
-    public static void namereverse(){
+    public static string namereverse(){
         
         Account act = new Account();
         act =[select Name from Account limit 1];
         system.debug(act.Name);
         system.debug(act.Name.reverse());
+        return act.Name.reverse();
     }
     
     	//Print the fibonacci series
     
-    public static void fibonacci(integer n){
+    public static list<integer> fibonacci(integer n){
         
         integer temp,a=0;
         integer b=1;
+        list<integer> fnbrs = new list<integer>();
         for(integer i=0;i<n;i++){
             
             temp = a+b;
-            System.debug(temp);
+            System.debug(b);
+            fnbrs.add(b);
             a=b;
             b=temp;
             
         }
+        return fnbrs;
     }
     
    		//Print any Integer number in reverse order
