@@ -32,7 +32,7 @@ public class Exam {
         
         
         Contact cts = new Contact();
-        cts = [select FirstName,LastName from Contact where FirstName ='shaik' limit 1];
+        cts = [select FirstName,LastName from Contact limit 1];
             
             System.debug(cts.FirstName.capitalize()+' '+cts.LastName.capitalize());
             return cts;
@@ -89,7 +89,7 @@ public class Exam {
     
    		//Print any Integer number in reverse order
    
-    public static void integerreverse(integer n){
+    public static integer integerreverse(integer n){
         
         integer reverse =0;
         system.debug(n);
@@ -100,15 +100,17 @@ public class Exam {
           	n = n/10;
         }
         system.debug(reverse);
+        return reverse;
     }
     
     	//Products having Description field containing 'a' in it
     
-    public static void ProductsWithDescription(){
+    public static list<Product2> ProductsWithDescription(){
         
         list<Product2> products = new list<Product2>();
         products = [select Id,Name,Description from Product2 where Description like '%a%'];
         System.debug(products);
+        return products;
         
     }
     
