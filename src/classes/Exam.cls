@@ -28,14 +28,15 @@ public class Exam {
     
     	//Print the all the contact First name & last name (first alphabet in Capital letter)
     
-    public static Contact displayContact(){
+    public static string displayContact(){
         
         
         Contact cts = new Contact();
         cts = [select FirstName,LastName from Contact limit 1];
-            
-            System.debug(cts.FirstName.capitalize()+' '+cts.LastName.capitalize());
-            return cts;
+        string str1 = cts.FirstName.capitalize();
+        string str2 = cts.LastName.capitalize();
+        System.debug(str1+' '+str2);
+            return str1+' '+str2;
                         
         
         

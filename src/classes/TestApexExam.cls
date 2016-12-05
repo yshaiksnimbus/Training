@@ -26,7 +26,7 @@ public class TestApexExam {
         usr.Phone = '9700457252';
         insert usr;
         //creating Contact
-        Contact con = new Contact(LastName='YASEEN', FirstName='shaik');
+        Contact con = new Contact(FirstName='yaseen', LastName='shaik');
         insert con;
         //1 , (1+1)^2= 4 , (4+1)^2 =25 , (25+1)^2
         //Integer[] series = new Integer[]{1,4,25,676};
@@ -63,10 +63,10 @@ public class TestApexExam {
     }
 
     @isTest static void TestContactdisplay(){
-
-        Contact c = Exam.displayContact();
-        system.assertEquals('Yaseen', c.LastName.capitalize());
-        system.assertEquals('Shaik',c.FirstName.capitalize());
+        Contact con = [select FirstName,LastName from Contact where LastName = 'shaik'];
+        string c = Exam.displayContact();
+        system.assertEquals('Yaseen Shaik', c);
+        
     }
     @isTest static void Testseries(){
         long[] series = new long[]{1,4,25,676};
