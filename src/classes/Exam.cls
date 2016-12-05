@@ -117,13 +117,18 @@ public class Exam {
     
     	
     
-    public static void DifferenceofDates(string s1, string s2){
+    public static string DifferenceofDates(string s1, string s2){
         
         DateTime dt1=DateTime.valueOf(s1);
         DateTime dt2=DateTime.valueOf(s2);
-         
-         if(s1!=null && s2!=null)
-         {    
+        string str;
+        if(dt2<dt1){
+            str = 'Enter the Proper Date Format. The second date should be greater than the First date';
+            system.debug(str);
+        }
+         else if(dt1!=null && dt2!=null)
+         {   
+
          integer yyyy1=dt2.year()-dt1.year();    
          integer mm1=dt2.month()-dt1.month();
          integer dd1=dt2.day()-dt1.day();
@@ -133,6 +138,10 @@ public class Exam {
            string stryear;
            string strmonth = ''+mm1;
            string strdays = ''+dd1;
+           string strhour;
+           string strminute = ''+mn1;
+           string strsecond = ''+ss1;
+
            if(mm1 > 0){
                stryear = ''+yyyy1;    
                
@@ -147,19 +156,36 @@ public class Exam {
                    stryear = ''+(yyyy1-1);
                }
            }
-        system.debug('The difference between the two dates is: '+stryear+' years '+strmonth+' months '+strdays+' days '+hh1+' hours '+mn1+' minutes '+ss1+' seconds');
-            
-    }     
- }
+
+           if(mn1>0){
+                strhour = ''+hh1;
+           }else if(mn1<0){
+                strhour = ''+(hh1 -1);
+           }else if(mn1 ==0){
+                if(ss1 > 0){
+                    strhour = ''+hh1;
+                }else if(ss1 < 0){
+                    strhour = ''+(hh1-1);
+                }else if(ss1 ==0){
+                    strhour = ''+(hh1-1);
+                }
+           }
+           str = 'The difference between the two dates is: '+stryear+' years '+strmonth+' months '+strdays+' days '+strhour+' hours '+strminute+' minutes '+strsecond+' seconds';
+        system.debug(str);
+        
+        
+        } 
+        return str;
+    }
     
     
     
     
-    public static void binaryAddition(string bin1, string bin2){
+    public static string binaryAddition(string bin1, string bin2){
     
         integer i=0;
         long remainder = 0;
-        long[] temp =new long[2000];
+        long[] temp =new long[20];
         string sum ='';
         long binaryNo1 = long.valueOf(bin1);
         long binaryNo2 = long.valueOf(bin2);
@@ -182,6 +208,7 @@ public class Exam {
         }
         
         system.debug('Sum of two binary numbers: '+sum);
+        return sum;
    }
 
 

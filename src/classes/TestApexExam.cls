@@ -86,7 +86,7 @@ public class TestApexExam {
         list<integer> fn = Exam.fibonacci(7);
         system.assertEquals(fnbr,fn);
     }
-    @isTest static void Testintegerreversefor0(){
+    @isTest static void Testintegerreverse(){
         integer n = Exam.integerreverse(4567);
         system.assertEquals(7654,n);
     }
@@ -95,8 +95,23 @@ public class TestApexExam {
         list<Product2> pp = Exam.ProductsWithDescription();
         system.assertEquals([select Id,Name,Description from Product2 where Description like '%a%'],pp);
     }
-    @isTest static void TestDatedifference(){
-        
+    @isTest static void TestDatedifferenceDate1greaterthandate2(){
+        string str1 = '2016-07-25 20:45:34';
+        string str2 = '2000-03-20 00:00:00';
+        string result = Exam.DifferenceofDates(str1,str2);
+        system.assertEquals('Enter the Proper Date Format. The second date should be greater than the First date',result);
+    }
+    @isTest static void TestDatedifferenceDate1lessthandate2(){
+        string str1 = '2000-03-20 00:00:00';
+        string str2 = '2016-07-25 20:45:34';
+        string result = Exam.DifferenceofDates(str1,str2);
+        system.assertEquals('The difference between the two dates is: 16 years 4 months 5 days 20 hours 45 minutes 34 seconds',result);
+    }
+    @isTest static void TestBinaryAddition(){
+        string str1 = '100101';
+        string str2 = '0101101';
+        string result = Exam.binaryAddition(str1,str2);
+        system.assertEquals('1010010',result);
     }
 
     
